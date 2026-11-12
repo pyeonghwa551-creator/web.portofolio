@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080a09">
+    <title>Detail Proyek | Bilqis Khalisa</title>
+    <link rel="icon" type="image/png" href="assets/img/luluz.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container project-detail-page">
+        <header>
+            <a class="site-brand" href="index.html" aria-label="Bilqis Khalisa - Beranda">
+                <img src="assets/img/luluz.png" alt="">
+                <span>Bilqis Khalisa</span>
+            </a>
+            <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Ganti ke mode terang"
+                aria-pressed="false">
+                <span class="theme-toggle-track" aria-hidden="true">
+                    <span class="theme-toggle-icon theme-toggle-moon">☾</span>
+                    <span class="theme-toggle-icon theme-toggle-sun">☀</span>
+                    <span class="theme-toggle-thumb"></span>
+                </span>
+                <span id="theme-label">Mode Gelap</span>
+            </button>
+            <p class="eyebrow">Portfolio Bilqis Khalisa</p>
+            <h1 id="project-title">Detail Proyek</h1>
+            <p class="intro" id="project-description"></p>
+        </header>
+
+        <section class="project-detail" aria-labelledby="project-title">
+            <img class="project-detail-image" id="project-image" alt="Pratinjau karya proyek">
+            <nav class="detail-navigation" aria-label="Navigasi proyek">
+                <a class="project-link" href="index.html#projek-saya">← Kembali ke semua proyek</a>
+                <a
+                    class="project-link"
+                    href="https://www.instagram.com/bilq1sx/"
+                    target="_blank"
+                    rel="noopener noreferrer">Instagram ↗</a>
+            </nav>
+        </section>
+    </main>
+    <script src="js/script.js" defer></script>
+    <script src="js/project-detail.js" defer></script>
+</body>
+</html>

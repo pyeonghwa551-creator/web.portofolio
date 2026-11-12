@@ -1,0 +1,1139 @@
+
+/* ==================================================
+   PORTFOLIO BILQIS KHALISA
+   DESIGN: DARK PROFESSIONAL + IOS GLASSMORPHISM
+   ================================================== */
+
+
+/* ================================================
+   1. PENGATURAN WARNA
+   Ubah warna font cukup dari bagian ini.
+   ================================================ */
+
+:root {
+
+    color-scheme: dark;
+    --black: #080a09;
+    --text-primary: #f5f7f4;
+    --text-secondary: #a5aaa5;
+    --text-accent: #b7f34a;
+    --text-button: #080a09;
+    --glass: rgba(255,255,255,0.045);
+    --border: rgba(255,255,255,0.09);
+    --popup-background: rgba(28, 32, 35, 0.94);
+    --overlay: rgba(4, 7, 10, 0.48);
+    --placeholder: #191e19;
+    --grid-line: rgba(255,255,255,0.035);
+    --ambient-glow: rgba(183,243,74,0.07);
+    --ambient-secondary: rgba(255,255,255,0.025);
+    --accent-soft: rgba(183,243,74,0.1);
+    --glass-highlight: rgba(255,255,255,0.24);
+    --glass-inner-glow: rgba(255,255,255,0.035);
+    --glass-shadow: rgba(0,0,0,0.28);
+    --glass-outline: rgba(255,255,255,0.22);
+    --text-glow: rgba(183,243,74,0.12);
+    --popup-sheen: rgba(255,255,255,0.12);
+    --popup-sheen-soft: rgba(255,255,255,0.025);
+    --button-hover-bg: #ffffff;
+    --button-hover-text: #080a09;
+    --white: var(--text-primary);
+    --gray: var(--text-secondary);
+    --lime: var(--text-accent);
+}
+
+body[data-theme="light"] {
+    color-scheme: light;
+    --black: #edf2ef;
+    --text-primary: #1d2b26;
+    --text-secondary: #53665e;
+    --text-accent: #26745c;
+    --text-button: #ffffff;
+    --glass: rgba(255,255,255,0.4);
+    --border: rgba(49, 82, 67, 0.16);
+    --popup-background: rgba(241, 247, 243, 0.97);
+    --overlay: rgba(29, 47, 39, 0.38);
+    --placeholder: #dce8e1;
+    --grid-line: rgba(47, 83, 67, 0.055);
+    --ambient-glow: rgba(74, 145, 112, 0.14);
+    --ambient-secondary: rgba(207, 165, 105, 0.1);
+    --accent-soft: rgba(38, 116, 92, 0.12);
+    --glass-highlight: rgba(255,255,255,0.94);
+    --glass-inner-glow: rgba(218,237,226,0.58);
+    --glass-shadow: rgba(38, 70, 55, 0.2);
+    --glass-outline: rgba(72, 118, 96, 0.42);
+    --lime: var(--text-accent);
+    --text-glow: rgba(38, 116, 92, 0.12);
+    --popup-sheen: rgba(255,255,255,0.68);
+    --popup-sheen-soft: rgba(255,255,255,0.16);
+    --button-hover-bg: #205b49;
+    --button-hover-text: #ffffff;
+}
+
+
+/* ================================================
+   2. RESET DAN DASAR WEBSITE
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    background-image:
+        radial-gradient(ellipse at 12% 8%, var(--ambient-glow), transparent 45%),
+        radial-gradient(ellipse at 88% 62%, var(--ambient-secondary), transparent 42%),
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
+    background-attachment: fixed;
+    color: var(--text-primary);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Segoe UI",
+        sans-serif;
+
+    min-height: 100vh;
+    padding: 60px 20px;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ================================================
+   3. BACKGROUND EFFECT
+   ================================================ */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    width: 450px;
+    height: 450px;
+
+    background: var(--lime);
+    opacity: 0.055;
+
+    filter: blur(150px);
+
+    top: -180px;
+    right: -100px;
+
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    width: 350px;
+    height: 350px;
+
+    background: var(--text-primary);
+    opacity: 0.035;
+
+    filter: blur(150px);
+
+    bottom: -180px;
+    left: -100px;
+
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ================================================
+   4. MAIN CONTAINER
+   ================================================ */
+
+.container {
+    max-width: 900px;
+    width: 100%;
+
+    margin: auto;
+
+    position: relative;
+    z-index: 1;
+
+    animation: appear 0.9s ease;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================================================
+   5. HEADER
+   ================================================ */
+
+header {
+    margin-bottom: 45px;
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-brand img {
+    display: block;
+    width: 58px;
+    height: 58px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 22px var(--glass-shadow);
+}
+
+.site-brand:hover {
+    color: var(--text-accent);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.theme-toggle-track {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 58px;
+    height: 30px;
+    padding: 0 7px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--glass);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-toggle-icon {
+    z-index: 1;
+    font-size: 13px;
+    line-height: 1;
+}
+
+.theme-toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--text-accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+}
+
+body[data-theme="light"] .theme-toggle-thumb {
+    transform: translateX(28px);
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+}
+
+.eyebrow {
+    display: table;
+    padding: 8px 13px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 60%),
+        var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 8px 22px var(--glass-shadow),
+        0 0 18px var(--text-glow);
+    color: var(--text-accent);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+h1 {
+    width: fit-content;
+    max-width: 100%;
+    padding: 18px 22px 20px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 48%),
+        var(--glass);
+    backdrop-filter: blur(20px) saturate(155%);
+    -webkit-backdrop-filter: blur(20px) saturate(155%);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        inset 0 0 28px var(--glass-inner-glow),
+        0 16px 38px var(--glass-shadow),
+        0 0 30px var(--text-glow);
+    font-size: clamp(38px, 7vw, 65px);
+
+    font-weight: 700;
+    line-height: 1.08;
+
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 34px var(--text-glow);
+}
+
+.highlight {
+    color: var(--text-accent);
+}
+
+.intro {
+    padding: 12px 16px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 58%),
+        var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 10px 26px var(--glass-shadow);
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    max-width: 550px;
+
+    line-height: 1.8;
+}
+
+
+/* ================================================
+   6. PROFILE PHOTO
+   ================================================ */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.photo-frame {
+    width: 160px;
+    height: 160px;
+
+    flex-shrink: 0;
+
+    border-radius: 20px;
+    padding: 4px;
+
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 38%),
+        linear-gradient(135deg, var(--glass-outline), var(--lime) 48%, var(--accent-soft));
+    border: 1px solid var(--glass-highlight);
+    box-shadow:
+        0 0 30px var(--text-glow),
+        inset 0 1px 0 var(--glass-highlight),
+        0 12px 32px var(--glass-shadow);
+
+    overflow: hidden;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 1px solid var(--glass-highlight);
+    border-radius: 15px;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.photo-frame:hover img {
+    transform: scale(1.12);
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 16px;
+    background: var(--placeholder);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.photo-placeholder span {
+    font-size: 35px;
+    color: var(--text-accent);
+}
+
+.photo-placeholder small {
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.profile-info h2 {
+    display: table;
+    padding: 10px 15px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 58%),
+        var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 10px 26px var(--glass-shadow),
+        0 0 18px var(--text-glow);
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px var(--text-glow);
+}
+
+
+/* ================================================
+   7. INSTAGRAM LINK
+   ================================================ */
+
+.instagram-trigger {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 12px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--glass-inner-glow), transparent), var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 8px 22px var(--glass-shadow);
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.instagram-trigger:hover {
+    color: var(--text-accent);
+    transform: translateX(3px);
+}
+
+.instagram-trigger svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ================================================
+   8. SECTION HEADING
+   ================================================ */
+
+section {
+    margin-top: 45px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    padding: 8px 14px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, var(--glass-highlight), transparent 60%),
+        var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 8px 22px var(--glass-shadow);
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 0 18px var(--text-glow);
+}
+
+.accent {
+    width: 8px;
+    height: 8px;
+
+    background: var(--text-accent);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px var(--text-accent);
+}
+
+
+/* ================================================
+   9. GLASS CARDS
+   ================================================ */
+
+.profile-card,
+.project-card {
+
+    background:
+        linear-gradient(135deg, var(--glass-inner-glow), transparent 55%),
+        var(--glass);
+
+    border: 1px solid var(--glass-outline);
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        inset 0 0 30px var(--glass-inner-glow),
+        0 16px 40px var(--glass-shadow);
+
+    transition: 0.35s ease;
+}
+
+.profile-card:hover,
+.project-card:hover {
+
+    border-color: var(--text-accent);
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 18px 48px var(--glass-shadow),
+        0 0 28px var(--text-glow);
+}
+
+
+/* ================================================
+   10. PROFILE TABLE
+   ================================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 17px 12px;
+
+    border-bottom: 1px solid var(--border);
+
+    vertical-align: middle;
+    text-shadow: 0 1px 12px var(--text-glow);
+}
+
+tr:last-child th,
+tr:last-child td {
+    border-bottom: none;
+}
+
+th {
+    width: 35%;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+td {
+    color: var(--text-primary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+tr:hover td {
+    color: var(--text-accent);
+    padding-left: 18px;
+}
+
+
+/* ================================================
+   11. PROJECT CARD
+   ================================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.project-card {
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+    padding: 18px;
+}
+
+.project-card .project-description {
+    flex-grow: 1;
+}
+
+.project-label {
+    color: var(--text-accent);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.project-card h3 {
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    text-shadow: 0 0 20px var(--text-glow);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    max-width: 600px;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid var(--glass-outline);
+    border-radius: 18px;
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 12px 32px var(--glass-shadow),
+        0 0 22px var(--text-glow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card img:hover {
+    transform: scale(1.015);
+    box-shadow:
+        0 16px 38px var(--glass-shadow),
+        0 0 30px var(--text-glow);
+}
+
+.project-link {
+    align-self: flex-start;
+    padding: 9px 14px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--glass-highlight), transparent), var(--glass);
+    box-shadow: inset 0 1px 0 var(--glass-highlight);
+    color: var(--text-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 var(--glass-highlight), 0 8px 22px var(--glass-shadow);
+}
+
+.project-detail {
+    padding: 22px;
+    border: 1px solid var(--glass-outline);
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg, var(--glass-inner-glow), transparent 55%),
+        var(--glass);
+    box-shadow:
+        inset 0 1px 0 var(--glass-highlight),
+        0 18px 44px var(--glass-shadow);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.project-detail-image {
+    display: block;
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border: 1px solid var(--glass-outline);
+    border-radius: 18px;
+    background: var(--glass);
+    box-shadow: 0 12px 32px var(--glass-shadow);
+}
+
+.detail-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+
+/* ================================================
+   12. CLICK EFFECT
+   ================================================ */
+
+.profile-card:active,
+.project-card:active {
+
+    transform: scale(0.98);
+
+    border-color: var(--text-accent);
+}
+
+
+/* ================================================
+   13. INSTAGRAM POPUP
+   IOS GLASSMORPHISM STYLE
+   ================================================ */
+
+.popup-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    background: var(--overlay);
+
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 100;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* KOTAK POPUP */
+
+.popup-box {
+
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 390px;
+
+    padding: 30px;
+
+    background: var(--popup-background);
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 24px 70px var(--glass-shadow),
+        inset 0 1px 0 var(--glass-highlight),
+        0 0 28px var(--text-glow);
+
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+
+    transform: translateY(25px) scale(0.95);
+
+    transition: 0.3s ease;
+}
+
+
+/* ANIMASI POPUP */
+
+.popup-overlay.active .popup-box {
+    transform: translateY(0) scale(1);
+}
+
+
+/* EFEK CAHAYA KACA */
+
+.popup-box::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        135deg,
+        var(--popup-sheen),
+        transparent 42%,
+        var(--popup-sheen-soft)
+    );
+}
+
+.popup-box > * {
+    position: relative;
+}
+
+
+/* ================================================
+   14. POPUP CONTENT
+   ================================================ */
+
+.instagram-icon-large {
+
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 20px;
+
+    color: var(--text-accent);
+}
+
+.instagram-icon-large svg {
+    width: 100%;
+    height: 100%;
+}
+
+.popup-box h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.popup-description {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+.instagram-username {
+
+    color: var(--text-accent);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 23px;
+}
+
+
+/* ================================================
+   15. POPUP BUTTON
+   ================================================ */
+
+.instagram-open-button {
+
+    display: block;
+    width: 100%;
+
+    background: var(--text-accent);
+    color: var(--text-button);
+
+    text-decoration: none;
+
+    padding: 13px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.3s;
+    border: 1px solid var(--glass-outline);
+    box-shadow: inset 0 1px 0 var(--glass-highlight), 0 8px 24px var(--glass-shadow);
+}
+
+.instagram-open-button:hover {
+
+    background: var(--button-hover-bg);
+    color: var(--button-hover-text);
+
+    transform: translateY(-2px);
+}
+
+.close-button {
+
+    background: transparent;
+    border: none;
+
+    color: var(--text-secondary);
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.close-button:hover {
+    color: var(--text-primary);
+}
+
+
+/* ================================================
+   16. FOOTER
+   ================================================ */
+
+footer {
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    margin-top: 55px;
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* ================================================
+   17. RESPONSIVE DESIGN
+   ================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 40px 17px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+        padding: 15px 16px 17px;
+        border-radius: 19px;
+    }
+
+    .profile-header {
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .photo-frame {
+        width: 110px;
+        height: 110px;
+
+        border-radius: 16px;
+    }
+
+    .profile-info h2 {
+        font-size: 18px;
+    }
+
+    .profile-card,
+    .project-card {
+
+        padding: 16px;
+        border-radius: 17px;
+    }
+
+    th,
+    td {
+        padding: 14px 7px;
+    }
+
+    th {
+        width: 40%;
+        font-size: 12px;
+    }
+
+    td {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+
+    .project-card h3 {
+        font-size: 20px;
+    }
+
+    .project-card img {
+        height: 240px;
+        border-radius: 14px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .popup-box {
+        padding: 25px 20px;
+    }
+}
+
+
+/* ================================================
+   18. ACCESSIBILITY
+   ================================================ */
+
+button:focus-visible,
+a:focus-visible {
+
+    outline: 2px solid var(--text-accent);
+    outline-offset: 4px;
+}
+
+
+/* MENGURANGI ANIMASI JIKA DIPERLUKAN */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* FALLBACK JIKA BROWSER TIDAK MENDUKUNG BLUR */
+
+@supports not ((backdrop-filter: blur(1px))) {
+
+    .popup-box {
+        background: var(--popup-background);
+    }
+
+}
+
+body[data-theme="light"] .profile-card,
+body[data-theme="light"] .project-card,
+body[data-theme="light"] .project-detail,
+body[data-theme="light"] .popup-box,
+body[data-theme="light"] h1,
+body[data-theme="light"] .intro,
+body[data-theme="light"] .eyebrow,
+body[data-theme="light"] .profile-info h2,
+body[data-theme="light"] .instagram-trigger,
+body[data-theme="light"] .section-heading h2,
+body[data-theme="light"] .project-link,
+body[data-theme="light"] .theme-toggle-track {
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.82), rgba(255,255,255,0.2) 46%, rgba(194,225,209,0.34)),
+        var(--glass);
+    border-color: var(--glass-outline);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.98),
+        inset 1px 0 0 rgba(255,255,255,0.52),
+        inset 0 -1px 0 rgba(61,112,88,0.12),
+        0 14px 34px var(--glass-shadow),
+        0 2px 8px rgba(255,255,255,0.72);
+    backdrop-filter: blur(30px) saturate(185%);
+    -webkit-backdrop-filter: blur(30px) saturate(185%);
+}
+
+body[data-theme="light"] .photo-frame {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.98),
+        0 0 30px var(--text-glow),
+        0 14px 34px var(--glass-shadow),
+        0 2px 8px rgba(255,255,255,0.72);
+}
+
+body[data-theme="light"] .project-card img,
+body[data-theme="light"] .project-detail-image {
+    border-color: rgba(72, 118, 96, 0.48);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        0 14px 34px var(--glass-shadow),
+        0 0 0 4px rgba(255,255,255,0.28);
+}
